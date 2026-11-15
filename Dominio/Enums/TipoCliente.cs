@@ -2,5 +2,6 @@
 {
     public class TipoCliente
     {
+        Particular, Empresa, Organizacion
     }
 }

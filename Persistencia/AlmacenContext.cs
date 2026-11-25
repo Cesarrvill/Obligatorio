@@ -1,4 +1,4 @@
-﻿namespace Obligatorio.Persistecia
+﻿namespace Obligatorio.Persistencia
 {
     public class AlmacenContext
     {

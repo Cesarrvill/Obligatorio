@@ -3,9 +3,11 @@
     public class EstadoEquipo
     {
 
-        Disponible, Reservado, EnPreparacion, Alquilado, EnMantenimiento
+        //Disponible, Reservado, EnPreparacion, Alquilado, EnMantenimiento
+        
 
-            
+
+
 
     }
 }

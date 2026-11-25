@@ -5,22 +5,6 @@ namespace Obligatorio.Dominio.Entidades
 {
     public class Cliente
     {
-
-        //        Id(int)
-
-        //Tipo(string) -> Sugerencia: podrías hacer un Enum TipoCliente con Particular, Empresa, Organizacion.
-
-        //Nombre(string)
-
-        //Documento(string)
-
-        //Telefono(string)
-
-        //Email(string)
-
-        //Direccion(string)
-
-        //Activo(bool)
         private int aId;
         private string aTipo;
         private string aNombre;

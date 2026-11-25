@@ -2,6 +2,6 @@
 {
     public class EstadoSolicitud
     {
-        Pendiente, Aceptada, Rechazada, Cancelada
+        //Pendiente, Aceptada, Rechazada, Cancelada
     }
 }

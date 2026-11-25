@@ -1,4 +1,72 @@
 ﻿@page
-@model Obligatorio.Pages.Clientes.CrearModel
+@model Obligatorio.Pages.Clientes.AltaModel
 @{
+    ViewData["Title"] = "Agregar Cliente";
 }
+<div class="text-left">
+    <h1 class="display-4 text-center">Agregar un Cliente</h1>
+    <hr />
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input class="form-control" type="text" name="id" id="id" asp-for="id" readonly />
+                </div>
+                <div class="form-group">
+                    <label for="Tipo">Tipo:</label>
+                    <select class="form-control" id="tipo" name="tipo">
+                        <option value="">Seleccione un Tipo</option>
+                        <option value="Empresa">Empresa</option>
+                        <option value="Particular">Particular</option>
+                        <option value="Organizaciones">Organizaciones</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Nombre">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" id="nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="Documento">Documento:</label>
+                    <input class="form-control" type="text" name="documento" id="documento" />
+                </div>
+                <div class="form-group">
+                    <label for="Telefono">Telefono:</label>
+                    <input class="form-control" type="text" name="telefono" id="telefono" />
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input class="form-control" type="text" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="Direccion">Dirección:</label>
+                    <input class="form-control" type="text" name="direccion" id="direccion" />
+                </div>
+                <div class="form-group">
+                    <label for="Activo">Activo:</label>
+                    <select class="form-control" id="activo" name="activo">
+                        <option value="">Seleccione un Estado</option>
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+           
+        </div>
+        <hr />
+        <div class="row">
+            <div class="mt-2">
+                <button class="btn btn-success" type="submit" asp-page-handler="Agregar">Agregar</button>
+                <a class="btn btn-warning" asp-page="./Listar">Volver</a>
+            </div>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            @Model.Mensaje
+        </div>
+    }
+</div>

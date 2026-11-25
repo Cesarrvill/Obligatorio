@@ -2,14 +2,6 @@
 {
     public class DetalleDevolucion
     {
-
-        Id(int)
-
-Estado(string) -> Sugerencia: Enum EstadoDevolucion(Correcto, Dañado, Faltante, RequiereMantenimiento).
-
-CargoAdicional(decimal)
-
-Observacion(string)
             private int aId;
         private string aEstado;
         private decimal aCargoAdicional;

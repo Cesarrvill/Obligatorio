@@ -1,0 +1,70 @@
+﻿@page
+@model Obligatorio.Pages.Equipamiento.AltaEquipamientoModel
+@{
+    ViewData["Title"] = "Agregar Equipamiento";
+}
+<div class="text-left">
+    <h1 class="display-4 text-center">Agregar un Equipamiento</h1>
+    <hr />
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input class="form-control" type="text" name="id" id="id" asp-for="id" readonly />
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="Nombre">Nombre:</label>
+                        <input class="form-control" type="text" name="nombre" id="nombre" />
+                    </div>
+                    <label for="Fecha">Fecha:</label>
+                    <input class="form-control" type="date" name="fecha" id="fecha" />
+                </div>
+                <div class="form-group">
+                    <label for="Tipo">Tipo:</label>
+                    <select class="form-control" id="tipo" name="tipo">
+                        <option value="">Seleccione un Tipo</option>
+                        <option value="Empresa">Empresa</option>
+                        <option value="Particular">Particular</option>
+                        <option value="Organizaciones">Organizaciones</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Ubicacion">Ubicación:</label>
+                    <input class="form-control" type="text" name="ubicacion" id="ubicacion" />
+                </div>
+                <div class="form-group">
+                    <label for="HoraInicio">Hora de Inicio:</label>
+                    <input class="form-control" type="time" name="horaInicio" id="horaInicio" />
+                </div>
+                <div class="form-group">
+                    <label for="HoraFin">Hora de Fin:</label>
+                    <input class="form-control" type="time" name="horaFin" id="horaFin" />
+                </div>
+                <div class="form-group">
+                    <label for="CantAsistentes">Cantidad de Asistentes:</label>
+                    <input class="form-control" type="number" name="cantAsistentes" id="cantAsistentes" />
+                </div>
+            </div>
+           
+        </div>
+        <hr />
+        <div class="row">
+            <div class="mt-2">
+                <button class="btn btn-success" type="submit" asp-page-handler="Agregar">Agregar</button>
+                <a class="btn btn-warning" asp-page="./ListarEventos">Volver</a>
+            </div>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            @Model.Mensaje
+        </div>
+    }
+</div>
+
+

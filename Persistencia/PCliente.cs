@@ -66,7 +66,7 @@ namespace Obligatorio.Persistencia
         }
         public int ProximoId()
         {
-            string sql = "SELECT (ISNULL(MAX(id),0)+1) FROM cliente";
+            string sql = "SELECT (ISNULL(MAX(id),0)+1) FROM evento";
             DataSet datos = Conexion.Consultar(sql);
             DataRowCollection filas = datos.Tables[0].Rows;
             var campo = filas[0];

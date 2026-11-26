@@ -9,6 +9,7 @@ namespace Obligatorio.Dominio
         private PControladora Persistencia;
         private static List<Cliente> aListaClientes = new List<Cliente>();
         private static List<Evento> aListaEventos = new List<Evento>();
+        private static List<Equipamiento> aListaEquipamientos = new List<Equipamiento>();
 
         public Controladora() {
             Persistencia = new PControladora();
@@ -150,5 +151,82 @@ namespace Obligatorio.Dominio
         }
         #endregion
 
+        #region Evento
+
+        public int ProximoIdEquipamiento()
+        {
+            return Persistencia.ProximoEquipamientoId();
+        }
+        public List<Equipamiento> ListarEquipamientos()
+        {
+            aListaEquipamientos = Persistencia.ListaEquipamientos();
+            return aListaEquipamientos;
+        }
+        public Equipamiento BuscarEquipamiento(int pId)
+        {
+            foreach (EquipamientounEquipamientoin aListaEquipamientos)
+
+            {
+                if (unEquipamiento.Id == pId)
+                {
+                    return unEquipamiento;
+                }
+            }
+            return null;
+        }
+
+        public bool AltaEquipamiento(Equipamiento pEquipamiento)
+        {
+            Equipamiento ComparoEquipamiento = BuscarEquipamiento(pEquipamiento.Id);
+            if (ComparoEquipamiento == null)
+            {
+                if (Persistencia.AltaEquipamiento(pEquipamiento))
+                {
+                    aListaEquipamientos.Add(pEquipamiento);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool BajaEquipamiento(int pId)
+        {
+            Equipamiento EquipamientoAEliminar = BuscarEquipamiento(pId);
+            if (EquipamientoAEliminar != null)
+            {
+                if (Persistencia.BajaEquipamiento(pId))
+                {
+                    aListaEquipamientos.Remove(EquipamientoAEliminar);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool ModificarEquipamiento(int pId, string pNombre, string pDescripcion, string pCaracteristicas, TipoEquipamiento.TipoEquipamento pTipo, int pCantidadDisponible, decimal pPrecioAlquiler, double pTotal)
+        {
+            Equipamiento EquipamientoAModificar = BuscarEquipamiento(pId);
+            if (EquipamientoAModificar != null)
+            {
+                EquipamientoAModificar.Tipo = pTipo;
+                EquipamientoAModificar.Nombre = pNombre;
+                EquipamientoAModificar.Descripcion = pDescripcion;
+                EquipamientoAModificar.Caracteristicas = pCaracteristicas;
+                EquipamientoAModificar.CantidadDisponible = pCantidadDisponible;
+                EquipamientoAModificar.PrecioAlquiler = pPrecioAlquiler;
+                return true;
+            }
+            return false;
+        }
+                EquipamientoAModificar.Tipo = pTipo;
+                EquipamientoAModificar.Nombre = pNombre;
+                EquipamientoAModificar.Descripcion = pDescripcion;
+                EquipamientoAModificar.Caracteristicas = pCaracteristicas;
+                EquipamientoAModificar.CantidadDisponible = pCantidadDisponible;
+                EquipamientoAModificar.PrecioAlquiler = pPrecioAlquiler;
+                EquipamientoAModificar.Total = pTotal;
+                return true;
+            }
+            return false;
+        }
+        #endregion
     }
 }

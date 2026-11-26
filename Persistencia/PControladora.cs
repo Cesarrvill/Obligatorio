@@ -26,5 +26,30 @@ namespace Obligatorio.Persistencia
             return new PCliente().ProximoId();
         }
         #endregion
+
+
+
+        #region " Eventos "
+        public List<Evento> ListaEventos()
+        {
+            return new PEvento().ListaEventos();
+        }
+        public bool AltaEvento(Evento mEvento)
+        {
+            return new PEvento().Alta(mEvento);
+        }
+        public bool BajaEvento(int pId)
+        {
+            return new PEvento().Baja(pId);
+        }
+        public bool ModificarEvento(Evento mEvento)
+        {
+            return new PEvento().Modificar(mEvento);
+        }
+        public int ProximoEventoId()
+        {
+            return new PCliente().ProximoId();
+        }
+        #endregion
     }
 }

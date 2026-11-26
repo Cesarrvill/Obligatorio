@@ -63,7 +63,7 @@ namespace Obligatorio.Pages.Clientes
                 Controladora unaControladora = new Controladora();
 
                 unaControladora.AltaCliente(unCliente);
-                return Redirect("/PageCliente/Listar");
+                return Redirect("/PageClientes/Listar");
 
             }
             catch (Exception Error)

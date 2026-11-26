@@ -1,0 +1,80 @@
+﻿@page
+@model Obligatorio.Pages.PageEventos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Evento";
+}
+@* private int aId;
+private string aNombre;
+private DateTime aFecha;
+private string aTipoEvento; // Agregado el campo TipoEvento
+private string aUbicacion;
+private TimeSpan aHoraInicio;
+private TimeSpan aHoraFin;
+private int aCantAsistentes;
+
+ *@
+<div class="text left">
+    <h1 class="display-4 text-center">Eliminar Evento</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.TipoEvento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.TipoEvento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.Ubicacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.Ubicacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.HoraInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.HoraInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.HoraFin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.HoraFin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.evento.CantAsistentes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.evento.CantAsistentes)
+        </dd>
+    </dl>
+    <hr />
+
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.evento.Id" />
+        <div class="row">
+            <div class="mt-2">
+                <button type="submit" asp-page-handler="Eliminar" class="btn btn-danger">Eliminar</button>
+                <a class="btn btn-warning" asp-page="./ListarEventos">Volver</a>
+            </div>
+        </div>
+    </form>
+</div>

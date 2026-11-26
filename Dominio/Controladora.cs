@@ -8,6 +8,7 @@ namespace Obligatorio.Dominio
     {
         private PControladora Persistencia;
         private static List<Cliente> aListaClientes = new List<Cliente>();
+        private static List<Evento> aListaEventos = new List<Evento>();
 
         public Controladora() {
             Persistencia = new PControladora();
@@ -80,8 +81,74 @@ namespace Obligatorio.Dominio
         }
         #endregion
 
-        
 
+
+        #region Evento
+
+        public int ProximoIdEvento()
+        {
+            return Persistencia.ProximoEventoId();
+        }
+        public List<Evento> ListarEventos()
+        {
+            aListaEventos = Persistencia.ListaEventos();
+            return aListaEventos;
+        }
+        public Evento BuscarEvento(int pId)
+        {
+            foreach (Evento unEvento in aListaEventos)
+            {
+                if (unEvento.Id == pId)
+                {
+                    return unEvento;
+                }
+            }
+            return null;
+        }
+
+        public bool AltaEvento(Evento pEvento)
+        {
+            Evento ComparoEvento = BuscarEvento(pEvento.Id);
+            if (ComparoEvento == null)
+            {
+                if (Persistencia.AltaEvento(pEvento))
+                {
+                    aListaEventos.Add(pEvento);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool BajaEvento(int pId)
+        {
+            Evento EventoAEliminar = BuscarEvento(pId);
+            if (EventoAEliminar != null)
+            {
+                if (Persistencia.BajaEvento(pId))
+                {
+                    aListaEventos.Remove(EventoAEliminar);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool ModificarEvento(int pId, string pNombre, DateTime pFecha, string pTipoEvento, string pUbicacion, TimeSpan pHoraInicio, TimeSpan pHoraFin, int pCantAsistentes)
+        {
+            Evento EventoAModificar = BuscarEvento(pId);
+            if (EventoAModificar != null)
+            {
+                EventoAModificar.TipoEvento = pTipoEvento;
+                EventoAModificar.Nombre = pNombre;
+                EventoAModificar.Fecha = pFecha;
+                EventoAModificar.Ubicacion = pUbicacion;
+                EventoAModificar.HoraInicio = pHoraInicio;
+                EventoAModificar.HoraFin = pHoraFin;
+                EventoAModificar.CantAsistentes = pCantAsistentes;
+                return true;
+            }
+            return false;
+        }
+        #endregion
 
     }
 }

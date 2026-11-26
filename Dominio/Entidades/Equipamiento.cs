@@ -12,7 +12,6 @@ namespace Obligatorio.Dominio.Entidades
             private TipoEquipamiento.TipoEquipamento aTipo;
             private int aCantidadDisponible;
             private decimal aPrecioAlquiler;
-            private double aTotal;
         public int Id { get { return aId; } set { aId = value; } }
         public string Nombre { get { return aNombre; } set { aNombre = value; } }
         public string Descripcion { get { return aDescripcion; } set { aDescripcion = value; } }
@@ -21,10 +20,9 @@ namespace Obligatorio.Dominio.Entidades
         public int CantidadDisponible { get { return aCantidadDisponible; } set { aCantidadDisponible = value; } }
         public decimal PrecioAlquiler { get { return aPrecioAlquiler; } set { aPrecioAlquiler = value; } }
 
-        public double TotalAlquiler { get { return aTotal; } set { aTotal = value; } }
 
         // Constructor
-        public Equipamiento(int pId, string pNombre, string pDescripcion, string pCaracteristicas, TipoEquipamiento.TipoEquipamento pTipo, int pCantidadDisponible, decimal pPrecioAlquiler, double pTotal)
+        public Equipamiento(int pId, string pNombre, string pDescripcion, string pCaracteristicas, TipoEquipamiento.TipoEquipamento pTipo, int pCantidadDisponible, decimal pPrecioAlquiler)
         {
             aId = pId;
             aNombre = pNombre;
@@ -33,7 +31,6 @@ namespace Obligatorio.Dominio.Entidades
             aTipo = pTipo;
             aCantidadDisponible = pCantidadDisponible;
             aPrecioAlquiler = pPrecioAlquiler;
-            aTotal = pTotal;
         }
 
     }

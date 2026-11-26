@@ -10,6 +10,7 @@ namespace Obligatorio.Dominio
         private static List<Cliente> aListaClientes = new List<Cliente>();
         private static List<Evento> aListaEventos = new List<Evento>();
         private static List<Equipamiento> aListaEquipamientos = new List<Equipamiento>();
+        private static List<Contratacion> aListaContrataciones = new List<Contratacion>();
 
         public Controladora() {
             Persistencia = new PControladora();
@@ -151,21 +152,22 @@ namespace Obligatorio.Dominio
         }
         #endregion
 
-        #region Evento
+        #region Equipamiento
 
         public int ProximoIdEquipamiento()
         {
             return Persistencia.ProximoEquipamientoId();
         }
+
         public List<Equipamiento> ListarEquipamientos()
         {
             aListaEquipamientos = Persistencia.ListaEquipamientos();
             return aListaEquipamientos;
         }
+
         public Equipamiento BuscarEquipamiento(int pId)
         {
-            foreach (EquipamientounEquipamientoin aListaEquipamientos)
-
+            foreach (Equipamiento unEquipamiento in aListaEquipamientos)
             {
                 if (unEquipamiento.Id == pId)
                 {
@@ -188,6 +190,7 @@ namespace Obligatorio.Dominio
             }
             return false;
         }
+
         public bool BajaEquipamiento(int pId)
         {
             Equipamiento EquipamientoAEliminar = BuscarEquipamiento(pId);
@@ -201,32 +204,97 @@ namespace Obligatorio.Dominio
             }
             return false;
         }
-        public bool ModificarEquipamiento(int pId, string pNombre, string pDescripcion, string pCaracteristicas, TipoEquipamiento.TipoEquipamento pTipo, int pCantidadDisponible, decimal pPrecioAlquiler, double pTotal)
+
+        public bool ModificarEquipamiento(int pId, string pNombre, string pDescripcion, string pCaracteristicas, TipoEquipamiento.TipoEquipamento pTipo, int pCantidadDisponible, decimal pPrecioAlquiler)
         {
             Equipamiento EquipamientoAModificar = BuscarEquipamiento(pId);
             if (EquipamientoAModificar != null)
             {
-                EquipamientoAModificar.Tipo = pTipo;
                 EquipamientoAModificar.Nombre = pNombre;
                 EquipamientoAModificar.Descripcion = pDescripcion;
                 EquipamientoAModificar.Caracteristicas = pCaracteristicas;
+                EquipamientoAModificar.Tipo = pTipo;
                 EquipamientoAModificar.CantidadDisponible = pCantidadDisponible;
                 EquipamientoAModificar.PrecioAlquiler = pPrecioAlquiler;
-                return true;
+                return Persistencia.ModificarEquipamiento(EquipamientoAModificar);
             }
             return false;
         }
-                EquipamientoAModificar.Tipo = pTipo;
-                EquipamientoAModificar.Nombre = pNombre;
-                EquipamientoAModificar.Descripcion = pDescripcion;
-                EquipamientoAModificar.Caracteristicas = pCaracteristicas;
-                EquipamientoAModificar.CantidadDisponible = pCantidadDisponible;
-                EquipamientoAModificar.PrecioAlquiler = pPrecioAlquiler;
-                EquipamientoAModificar.Total = pTotal;
-                return true;
+
+        #endregion
+
+
+
+        #region Contratacion
+
+        public int ProximoIdContratacion()
+        {
+            return Persistencia.ProximoContratacionId();
+        }
+        public List<Contratacion> ListarContrataciones()
+        {
+            aListaContrataciones = Persistencia.ListaContrataciones();
+            return aListaContrataciones;
+        }
+        public Contratacion BuscarContratacion(int pId)
+        {
+            foreach (Contratacion unaContratacion in aListaContrataciones)
+            {
+                if (unaContratacion.Id == pId)
+                {
+                    return unaContratacion;
+                }
+            }
+            return null;
+        }
+
+        public bool AltaContratacion(Contratacion pContratacion)
+        {
+            Contratacion ComparoContratacion = BuscarContratacion(pContratacion.Id);
+            if (ComparoContratacion == null)
+            {
+                if (Persistencia.AltaContratacion(pContratacion))
+                {
+                    aListaContrataciones.Add(pContratacion);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool BajaContratacion(int pId)
+        {
+            Contratacion ContratacionAEliminar = BuscarContratacion(pId);
+            if (ContratacionAEliminar != null)
+            {
+                if (Persistencia.BajaContratacion(pId))
+                {
+                    aListaContrataciones.Remove(ContratacionAEliminar);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool ModificarContratacion(int pId, DateTime pFecha, DateTime pFechaInicio, DateTime pFechaFin, decimal pImporteTotal, decimal pSaldoPendiente)
+        {
+            Contratacion ContratacionAModificar = BuscarContratacion(pId);
+            if (ContratacionAModificar != null)
+            {
+                ContratacionAModificar.Fecha = pFecha;
+                ContratacionAModificar.FechaInicio = pFechaInicio;
+                ContratacionAModificar.FechaFin = pFechaFin;
+                ContratacionAModificar.ImporteTotal = pImporteTotal;
+                ContratacionAModificar.SaldoPendiente = pSaldoPendiente;
+
+                if (Persistencia.ModificarContratacion(ContratacionAModificar))
+                {
+                    return true;
+                }
             }
             return false;
         }
         #endregion
+
+
     }
 }
+

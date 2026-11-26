@@ -1,0 +1,58 @@
+﻿@page
+@model Obligatorio.Pages.Contrataciones.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Contratación";
+}
+<div class="text left">
+    <h1 class="display-4 text-center">Eliminar Contratación</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.FechaInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.FechaInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.FechaFin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.FechaFin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.ImporteTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.ImporteTotal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.contratacion.SaldoPendiente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contratacion.SaldoPendiente)
+        </dd>
+    </dl>
+    <hr />
+
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.contratacion.Id" />
+        <div class="row">
+            <div class="mt-2">
+                <button type="submit" asp-page-handler="Eliminar" class="btn btn-danger">Eliminar</button>
+                <a class="btn btn-warning" asp-page="./ListarContrataciones">Volver</a>
+            </div>
+        </div>
+    </form>
+</div>

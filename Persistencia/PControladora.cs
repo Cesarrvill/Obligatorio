@@ -51,5 +51,61 @@ namespace Obligatorio.Persistencia
             return new PCliente().ProximoId();
         }
         #endregion
+
+        #region " Equipamientos "
+        public List<Equipamiento> ListaEquipamientos()
+        {
+            return new PEquipamiento().ListaEquipamientos();
+        }
+        public bool AltaEquipamiento(Equipamiento mEquipamiento)
+        {
+            return new PEquipamiento().Alta(mEquipamiento);
+        }
+        public bool BajaEquipamiento(int pId)
+        {
+            return new PEquipamiento().Baja(pId);
+        }
+        public bool ModificarEquipamiento(Equipamiento mEquipamiento)
+        {
+            return new PEquipamiento().Modificar(mEquipamiento);
+        }
+        public int ProximoEquipamientoId()
+        {
+            return new PEquipamiento().ProximoId();
+        }
+        #endregion
+
+
+
+
+
+        #region  Contrataciones 
+        public List<Contratacion> ListaContrataciones()
+        {
+            return new PContratacion().ListaContrataciones();
+        }
+        public bool AltaContratacion(Contratacion mContratacion)
+        {
+            return new PContratacion().Alta(mContratacion);
+        }
+        public bool BajaContratacion(int pId)
+        {
+            return new PContratacion().Baja(pId);
+        }
+        public bool ModificarContratacion(Contratacion mContratacion)
+        {
+            return new PContratacion().Modificar(mContratacion);
+        }
+        public int ProximoContratacionId()
+        {
+            return new PContratacion().ProximoId();
+        }
+        #endregion
+
+
+
+
+
     }
 }
+

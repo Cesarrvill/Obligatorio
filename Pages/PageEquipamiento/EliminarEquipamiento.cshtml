@@ -1,0 +1,72 @@
+﻿@page
+@model Obligatorio.Pages.Equipamiento.EliminarEquipamientoModel
+@{
+    ViewData["Title"] = "Eliminar Equipamiento";
+}
+<div class="text-left">
+    <h1 class="display-4 text-center">Eliminar Equipamiento</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.Caracteristicas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.Caracteristicas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.CantidadDisponible)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.CantidadDisponible)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.equipamiento!.PrecioAlquiler)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.equipamiento!.PrecioAlquiler)
+        </dd>
+    </dl>
+    <hr />
+
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.equipamiento?.Id" />
+        <div class="row">
+            <div class="mt-2">
+                <button type="submit" asp-page-handler="Eliminar" class="btn btn-danger">Eliminar</button>
+                <a class="btn btn-warning" asp-page="/Pages/PageEquipamiento/ListarEquipamiento">Volver</a>
+            </div>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            @Model.Mensaje
+        </div>
+    }
+</div>

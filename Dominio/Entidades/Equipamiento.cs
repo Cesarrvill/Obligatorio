@@ -8,7 +8,6 @@ namespace Obligatorio.Dominio.Entidades
             private string aNombre;
             private string aDescripcion;
             private string aCaracteristicas;
-            private bool aIndividualizado;
             private TipoEquipamiento.TipoEquipamento aTipo;
             private int aCantidadDisponible;
             private decimal aPrecioAlquiler;

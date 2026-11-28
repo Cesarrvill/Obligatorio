@@ -5,18 +5,27 @@
   
             private int aId;
             private int aCantidad;
-            private decimal aImporte;
+            private Equipamiento aEquipamiento;
+            private decimal aImporteTotal;
+            private decimal aSaldoPendiente;
+
 
         public int Id { get { return aId; } set { aId = value; } }
         public int Cantidad { get { return aCantidad; } set { aCantidad = value; } }
-        public decimal Importe { get { return aImporte; } set { aImporte = value; } }
+        public Equipamiento Equipamiento { get { return aEquipamiento; } set { aEquipamiento = value; } }
+        public decimal ImporteTotal { get { return aImporteTotal; } set { aImporteTotal = value; } }
+        public decimal SaldoPendiente { get { return aSaldoPendiente; } set { aSaldoPendiente = value; } }
+
+
 
         // Constructor
-        public LineaContratacion(int pId, int pCantidad, decimal pImporte)
+        public LineaContratacion(int pId, int pCantidad, Equipamiento pEquipamiento, decimal pImporteTotal, decimal pSaldoPendiente)
         {
             aId = pId;
             aCantidad = pCantidad;
-            aImporte = pImporte;
+            aEquipamiento = pEquipamiento;
+            aImporteTotal = pImporteTotal;
+            aSaldoPendiente = pSaldoPendiente;
         }
     }
 }

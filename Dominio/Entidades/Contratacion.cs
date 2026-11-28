@@ -6,25 +6,31 @@
         private DateTime aFecha;
         private DateTime aFechaInicio;
         private DateTime aFechaFin;
-        private decimal aImporteTotal;
-        private decimal aSaldoPendiente;
+        private List<LineaContratacion> aLineasContratacion;
+        private Cliente aCliente;
+        private Evento aEvento;
+      
 
         public int Id { get { return aId; } set { aId = value; } }
         public DateTime Fecha { get { return aFecha; } set { aFecha = value; } }
         public DateTime FechaInicio { get { return aFechaInicio; } set { aFechaInicio = value; } }
         public DateTime FechaFin { get { return aFechaFin; } set { aFechaFin = value; } }
-        public decimal ImporteTotal { get { return aImporteTotal; } set { aImporteTotal = value; } }
-        public decimal SaldoPendiente { get { return aSaldoPendiente; } set { aSaldoPendiente = value; } }
-        
+        public List<LineaContratacion> LineasContratacion { get { return aLineasContratacion; } set { aLineasContratacion = value; } }
+        public Cliente Cliente { get { return aCliente; } set { aCliente = value; } }
+        public Evento Evento { get { return aEvento; } set { aEvento = value; } }
+
+
         // Constructor
-        public Contratacion(int pId, DateTime pFecha, DateTime pFechaInicio, DateTime pFechaFin, decimal pImporteTotal, decimal pSaldoPendiente)
+        public Contratacion(int pId, DateTime pFecha, DateTime pFechaInicio, DateTime pFechaFin, Cliente pCliente, Evento pEvento, List<LineaContratacion> pLineasContratacion)
         {
             aId = pId;
             aFecha = pFecha;
             aFechaInicio = pFechaInicio;
             aFechaFin = pFechaFin;
-            aImporteTotal = pImporteTotal;
-            aSaldoPendiente = pSaldoPendiente;
+            aLineasContratacion = pLineasContratacion;
+            aCliente = pCliente;
+            aEvento = pEvento;
+           
         }
 
     }
